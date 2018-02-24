@@ -1,6 +1,7 @@
 
 let a, b, answer, flag = true;
 let o;
+alert('');
 do {
     a = Math.round(Math.random() * 20 - 10);
     b = Math.round(Math.random() * 20 - 10);
