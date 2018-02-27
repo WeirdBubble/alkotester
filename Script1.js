@@ -8,7 +8,6 @@ do {
     switch (operator) {
         case 1: {
             result = firstnumber + secondnumber;
-            roundUp(result);
             answer = prompt(`${firstnumber}+ ${secondnumber}=`);
             check(answer, result);
             break;
@@ -16,7 +15,6 @@ do {
 
         case 2: {
             result = firstnumber * secondnumber;
-            roundUp(result);
             answer = prompt(`${firstnumber}* ${secondnumber}=`);
             check(answer, result);
             break;
@@ -24,7 +22,6 @@ do {
 
         case 3: {
             result = firstnumber - secondnumber;
-            roundUp(result);
             answer = prompt(`${firstnumber}- ${secondnumber}=`);
             check(answer, result);
             break;
@@ -32,7 +29,9 @@ do {
 
         case 4: {
             result = firstnumber / secondnumber;
-            roundUp(result);
+            result *= 10;
+            Math.floor(result);
+            result /= 10;
             answer = prompt(`${firstnumber}/ ${secondnumber}=`);
             check(answer, result);
             break;
@@ -40,14 +39,6 @@ do {
     }
           
 } while (flag);
-
-function roundUp(result)
- {
-     result *= 10;
-     Math.floor(result);
-     result /= 10;
-     return result;
-}
 
 function check(answer, result)
 {
