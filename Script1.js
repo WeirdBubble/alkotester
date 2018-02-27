@@ -1,33 +1,36 @@
 
-let a, b, answer, flag = true;
-let o;
+let flag = true;
+let firstnumber, secondnumber, answer, operator, result;
+alert('Вас приветствует программа "Алкотестер"')
 do {
-    a = Math.round(Math.random() * 20 - 10);
-    b = Math.round(Math.random() * 20 - 10);
-    o = Math.ceil(4*Math.random());
-    if (o==1) {
-        rez = a + b;
-        rez *= 10;
-        Math.floor(rez);
-        rez /= 10;
-        //alert(`${a} ${b} ${rez}`);
-        answer = prompt(`${a}+ ${b}=`);
-        if (answer != rez) {
+    
+    firstnumber = Math.round(Math.random() * 20 - 10);
+    secondnumber = Math.round(Math.random() * 20 - 10);
+    operator = Math.ceil(4 * Math.random());
+    if (operator == 1) {
+        result = firstnumber + secondnumber;
+        result = roundUp();
+        //result *= 10;
+        //Math.floor(result);
+        //operator /= 10;
+        answer = prompt(`${firstnumber}+ ${secondnumber}=`);
+        if (answer != result) {
             alert('stop drinking');
             flag = false;
         }
 
     } else continue;
 
-    if (o==2) {
-        rez = a * b;
-        rez *= 10;
-        Math.floor(rez);
-        rez /= 10;
+    if (operator == 2) {
+        result = firstnumber * secondnumber;
+        result = roundUp();
+        //result *= 10;
+        //Math.floor(result);
+        //result /= 10;
         //alert(`${a} ${b} ${rez}`);
-        answer = prompt(`${a}* ${b}=`);
+        answer = prompt(`${firstnumber}* ${secondnumber}=`);
 
-        if (answer != rez) {
+        if (answer != result) {
             alert('stop drinking');
             flag = false;
 
@@ -35,28 +38,30 @@ do {
 
     }
 
-            if (o ==3) {
-                rez = a - b;
-                rez *= 10;
-                Math.floor(rez);
-                rez /= 10;
-                //alert(`${a} ${b} ${rez}`);
-                answer = prompt(`${a}- ${b}=`);
-                if (answer != rez) {
+    if (operator == 3) {
+        result = afirstnumber - b;
+        result = roundUp();
+                //result *= 10;
+                //Math.floor(result);
+                //result /= 10;
+                ////alert(`${a} ${b} ${rez}`);
+                answer = prompt(`${firstnumber}- ${secondnumber}=`);
+                if (answer != result) {
                     alert('stop drinking');
                     flag = false;
                 }
 
             }
     
-                if (o ==4) {
-                    rez = a / b;
-                    rez *= 10;
-                    Math.floor(rez);
-                    rez /= 10;
+    if (operator == 4) {
+        result = firstnumber / secondnumber;
+        result = roundUp();
+                    //result *= 10;
+                    //Math.floor(result);
+                    //result /= 10;
                     //alert(`${a} ${b} ${rez}`);
-                    answer = prompt(`${a}/ ${b}=`);
-                    if (answer != rez) {
+                    answer = prompt(`${firstnumber}/ ${secondnumber}=`);
+                    if (answer != result) {
                         alert('stop drinking');
                         flag = false;
                     }
@@ -65,7 +70,13 @@ do {
           
 } while (flag);
 
+ roundUp(result)
+ {
+     result *= 10;
+     Math.floor(result);
+     result /= 10;
 
+}
 /*
 let response;
 do {
