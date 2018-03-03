@@ -1,48 +1,45 @@
-const limit1 = 20, limit2 = 10, operatorAmount = 4, operator=['+', '*','-','/'];
-
-function randomNumber()
-{
-    const res =Math.round(Math.random() * limit1 - limit2);
-    return res? res:10;
+ï»¿function randomNumber() {
+    const min = -10;
+    const max = 10;
+    const res = getRandom(min, max - 1);
+    return res == 0 ? max : res;
 }
 
-function randomOperator()
-{
-    return Math.ceil(operatorAmount * Math.random());
+function getRandom(min, max) {
+   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function generateSign(firstnumber, secondnumber, sign)
-{
+function randomOperator() {
+    const min = 1;
+    const max = 4;
+    return getRandom(min, max);
+}
+
+function generateSign(firstnumber, secondnumber, sign) {
     switch (sign) {
         case 1: 
             return firstnumber + secondnumber;
-            
         case 2: 
-            return firstnumber * secondnumber;
-            
+            return firstnumber * secondnumber;            
         case 3: 
             return firstnumber - secondnumber;
-           
         case 4:
-            return Math.round((firstnumber / secondnumber)*10)/10;        
+            return Math.round((firstnumber / secondnumber) * 10) / 10;        
       }    
 }
 
-
-while(true) {
-    
+while (true) {
+    const operator = ['+', '*', '-', '/'];
     const firstnumber = randomNumber();
     const secondnumber = randomNumber();
     const sign = randomOperator();
-    const result = generateSign(firstnumber,secondnumber,sign);
-    const answer = prompt(`${firstnumber} ${operator[sign - 1]} ${secondnumber} =`);
-    if (answer!=result)
-    {
-        alert('Íà ñåãîäíÿ õâàòèò');
+    const result = generateSign(firstnumber, secondnumber, sign);
+    const answer = (secondnumber < 0) ? prompt(`${firstnumber} ${operator[sign - 1]} (${secondnumber}) =`) : 
+                                                        prompt(`${firstnumber} ${operator[sign - 1]} ${secondnumber} =`);
+    if (answer != result) {
+        alert('Ñ…Ğ²Ğ°Ñ‚Ğ¸Ñ‚ Ğ¿Ğ¸Ñ‚ÑŒ');
         break;
-    } else
-        {
-            alert('Åùå ïî îäíîé!');
-        }
-    
+    } else {
+        alert('Ğ•Ñ‰Ğµ Ğ¿Ğ¾ Ğ¾Ğ´Ğ½Ğ¾Ğ¹!');
+    }
 }
